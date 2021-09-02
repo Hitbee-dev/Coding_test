@@ -1,9 +1,13 @@
-array = [3, 5, 1, 2, 4]
+#거스름돈 주기
 
-for i in array:
-    for j in array:
-        temp = i*j
-        print(temp)
+n = 1260
+count = 0
 
-# [1, 2, 3, 4, 5], [2, 4, 6, 8, 10].. 이렇게 나올줄 알았는데
-# index값을 곱해주는거군... 기초부터 시작...
+coin_types = [500, 100, 50, 10]
+
+for coin in coin_types:
+    count += n // coin
+    n %= coin
+    print(f"n: {n}")
+
+print(count)
