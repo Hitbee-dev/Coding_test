@@ -1,1 +1,1 @@
-import changed_coin
+from contents import changed_coin
