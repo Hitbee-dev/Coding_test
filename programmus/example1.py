@@ -24,10 +24,11 @@ i, j, k = map(int, input().split()) #수 입력받기
 
 array = [1, 5, 2, 6, 3, 7, 4] #주어진 배열 array
 
-result = array[i-1:j] #i ~ j까지 자르기
+commands = array[i-1:j] #i ~ j까지 자르기
 
-result.sort() #자른 숫자 정렬
+commands.sort() #자른 숫자 정렬
 
-commends = result[k-1:k] #k번째 수 찾기
+result = commands[k-1:k] #k번째 수 찾기
 
-print(f"{array}를 {i}번째부터 {k}번째까지 자른 후 정렬합니다. {result}의 {k}번째 숫자는 {commends}입니다.")
+print("array     commands     return")
+print(f"{array}     {commands}     {result}")
