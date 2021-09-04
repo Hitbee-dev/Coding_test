@@ -20,14 +20,14 @@
 # [1, 5, 2, 6, 3, 7, 4]를 4번째부터 4번째까지 자른 후 정렬합니다. [6]의 첫 번째 숫자는 6입니다.
 # [1, 5, 2, 6, 3, 7, 4]를 1번째부터 7번째까지 자릅니다. [1, 2, 3, 4, 5, 6, 7]의 세 번째 숫자는 3입니다.
 
-i, j, k = map(int, input().split()) #i ~ j까지 자르기
+i, j, k = map(int, input().split()) 
 
 array = [1, 5, 2, 6, 3, 7, 4]
 
-result = array[i-1:j]
+result = array[i-1:j] #i ~ j까지 자르기
 
 result.sort() #자른 숫자 정렬
 
 commends = result[k-1:k] #k번째 수 찾기
-# result = result.sort()
-print(commends) #출력
+
+print(f"{array}를 {i}번째부터 {k}번째까지 자른 후 정렬합니다. {result}의 {k}번째 숫자는 {commends}입니다.")
