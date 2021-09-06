@@ -1,2 +1,2 @@
-# from programmus import example1
-from study import quiz1
+from contents import big_num
+# from study import quiz1
