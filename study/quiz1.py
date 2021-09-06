@@ -20,14 +20,11 @@ if not(days == 2):
 
 if(days==2):
     k = int(input("k일: "))
-    print(f"days: 1주차 {days}일") #입력한 날짜
     result += days
     for i in range(4): #토요일은 5번 나와야 한다. 하지만 2일은 맨처음에 입력 해 주었으니, 4번만 더 반복
         if(k>7):
             k = k-7
         days += 7
         result += days
-        print(f"days: {i+2}주차 {days}일") #날짜
-        print(f"result: {result}") #토요일을 모두 더했을 때의 값
 
     print(f"{weekdays[k]}요일")
