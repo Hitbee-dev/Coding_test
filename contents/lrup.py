@@ -28,33 +28,56 @@
 #출력 예시
 #3 4
 
-n = int(input("공간의 크기를 입력해주세요: "))
-move = list(map(str, input("이동할 계획서를 입력 해 주세요: ").split()))
-data = []
-for i in range(n):
-    for j in range(n):
-        data += (i+1, j+1)
+#해결
+# n = int(input("공간의 크기를 입력해주세요: "))
+# move = list(map(str, input("이동할 계획서를 입력 해 주세요: ").split()))
+# data = []
+# for i in range(n):
+#     for j in range(n):
+#         data += (i+1, j+1)
 
-i, j = 1, 1 #시작지점 (1, 1)
+# i, j = 1, 1 #시작지점 (1, 1)
 
-if not (len(move) == 0):
-    for k in range(len(move)):
-        if(move[k] == "L"):
-            if not(j == 1):
-                j = j-1
-        elif(move[k] == "R"):
-            if not(j == n-1):
-                j = j+1
-        elif(move[k] == "U"):
-            if not(i == 1):
-                i = i+1
-        elif(move[k] == "D"):
-            if not(i == n-1):
-                i = i+1
+# if not (len(move) == 0):
+#     for k in range(len(move)):
+#         if(move[k] == "L"):
+#             if not(j == 1):
+#                 j = j-1
+#         elif(move[k] == "R"):
+#             if not(j == n-1):
+#                 j = j+1
+#         elif(move[k] == "U"):
+#             if not(i == 1):
+#                 i = i+1
+#         elif(move[k] == "D"):
+#             if not(i == n-1):
+#                 i = i+1
             
-print(f"{i}, {j}")
+# print(f"{i}, {j}")
 
+#정답
+#N을 입력받기
+n = int(input())
+x, y = 1, 1
+plans = input().split()
 
-        
+#L, R, U, D에 따른 입력 방향
+dx = [0, 0, -1, 1]
+dy = [-1, 1, 0, 0]
+move_types = ["L", "R", "U", "D"]
+
+#이동 계획을 하나씩 확인
+for plan in plans:
+    #이동 후 좌표 구하기
+    for i in range(len(move_types)):
+        if(plan == move_types[i]):
+            nx = x+dx[i]
+            ny = y+dy[i]
+    #공간을 벗어나는 경우 무시
+    if nx<1 or ny<1 or nx>n or ny>n:
+        continue
+    #이동 수행
+    x, y = nx, ny
+print(x, y)
         
         
