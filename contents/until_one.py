@@ -20,7 +20,6 @@
 #2
 
 n, k = map(int, input().split())
-count = 0
 result = 0
 while(True):
     result += 1
