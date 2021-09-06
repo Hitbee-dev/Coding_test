@@ -1,2 +1,2 @@
-# from contents import big_num
-from study import quiz1
+from contents import num_card_game
+# from study import quiz1

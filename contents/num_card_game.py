@@ -23,3 +23,16 @@
 
 #출력 예시2
 #3
+
+n, m = map(int, input().split())
+
+result = 0
+
+for i in range(n):
+    data = list(map(int, input().split()))
+    min_value = min(data)
+    print(f"min: {min_value}")
+    result = max(result, min_value)
+    print(f"result: {result}")
+
+print(result)
