@@ -68,6 +68,7 @@ move_types = ["L", "R", "U", "D"]
 
 #이동 계획을 하나씩 확인
 for plan in plans:
+    print(f"plans: {plans}")
     #이동 후 좌표 구하기
     for i in range(len(move_types)):
         if(plan == move_types[i]):
