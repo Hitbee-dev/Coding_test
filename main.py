@@ -1,1 +1,1 @@
-from contents import lrup
+from contents import clock
