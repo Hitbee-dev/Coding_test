@@ -1,1 +1,1 @@
-from contents import clock
+from contents import king_of_night
