@@ -32,12 +32,8 @@ def solution(participant, completion):
     completion.sort()  # 정렬
     for n in range(len(completion)):
         if(participant[n] != completion[n]):  # 정렬 후 참여선수와 완주 선수를 비교, 만약 원소값이 같지 않다면
-            answer = participant[n]  # 이 참여 선수는 완주하지 못한 것이므로 출력
-            return answer
+            return participant[n]  # 이 참여 선수는 완주하지 못한 것이므로 출력
 
-    if(answer == ''):  # 전부 다 돌렸는데, 안나왔다면
-        # 이름이 제일 마지막 순서이기 때문에, 마지막 선수 이름 출력
-        answer = participant[len(completion)]
-        return answer
+    return participant[len(completion)]  # 이름이 제일 마지막 순서이기 때문에, 마지막 선수 이름 출력
 
 print(solution(participant, completion))
