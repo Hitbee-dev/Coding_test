@@ -49,3 +49,46 @@
 #2번 - - - 0 % (무전적) 0회 70kg
 #3번 - - - 0 % (무전적) 0회 60kg
 #본문에 서술된 우선순위를 따라[2, 1, 3] 을 return 합니다.
+
+def solution(weights, head2head):  # weights = 복서의 몸무게, head2head = 승률
+    answer = []
+    winner = []
+
+    for i, w in enumerate(weights):
+        h2h = head2head[i]
+        boxer = []
+        win = 0
+        lose = 0
+        none = 0
+        w2b = 0
+        boxer.append(i)  # 인덱스
+        boxer.append(w)  # 복서의 몸무게
+        for m in range(len(head2head)):
+            if(h2h[m] == 'W'):
+                win += 1
+                if(weights[i] < weights[m]):
+                    w2b += 1
+            if(h2h[m] == 'L'):
+                lose += 1
+            if(h2h[m] == 'N'):
+                none += 0
+        boxer.append(w2b)  # 승률이 동일한 복서들 중에 자신보다 무거운 선수를 이긴 횟수
+        if(win == 0):
+            boxer.append(0)
+        else:
+            boxer.append(win/(win+lose)*100)  # 승률을 %로 변환
+        boxer.reverse()  # 전체 승률, 무거운 선수 이긴 횟수, 자신의 몸무게, 번호
+        winner.append(boxer)
+
+    if(winner[0][0] == 0):
+        winner.sort(key=lambda x: (-x[1], -x[2], x[3]))
+        if(winner[0][1] == 0):
+            winner.sort(key=lambda x: (-x[2], x[3]))
+            if(winner[0][2] == 0):
+                winner.sort(key=lambda x: (x[3]))
+
+    winner.sort(key=lambda x: (-x[0], -x[1], -x[2], x[3]))
+
+    for win in winner:
+        answer.append(win[3]+1)
+    return answer
