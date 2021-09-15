@@ -88,3 +88,16 @@
 #2번과 4번은 반드시 만났습니다.
 #3번과 4번은 만났는지 알 수 없습니다.
 
+def solution(enter, leave):
+    cnt = [0 for _ in range(len(enter))]  # 0으로 된 배열 생성
+    room = []  # 빈 방 생성
+
+    for e in enter:  # 들어온 사람을 한명씩 불러옴
+        while leave[0] in room:  # 만약 떠난사람 첫번째가 방 안에 있다면
+            room.remove(leave.pop(0))  # 방에있는 사람과, 떠난사람 List에서 제거
+
+        for r in room:  # 방 안에 있는 사람을 한명씩 불러옴
+            cnt[r-1] += 1  # 사람-1(인덱스)마다 +1카운트
+        cnt[e-1] = len(room)  # 방에 있는 사람이 아닌 새로 들어온 사람은 방 안에 있는 사람 수 만큼 +1카운트
+        room.append(e)  # 방에 불러온 사람 추가
+    return cnt
