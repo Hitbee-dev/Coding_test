@@ -56,3 +56,46 @@
 #점수 총합이 55로 가장 높은 직업군은 "SI" 와 "PORTAL"입니다.
 #따라서 사전 순으로 먼저 오는 "PORTAL"을 return 해야 합니다.
 
+def solution(table, languages, preference):
+    tables = []
+    developer = []
+    buffer = []
+    l_name = []
+    answer = []
+
+    for dev in zip(languages, preference):  # 사용언어, 선호도 합치기
+        developer.append(dev)
+    print(f"dev: {developer}")
+
+    for i in range(5):
+        tables.append(table[i].split())  # 문자열을 띄어쓰기 기준으로 나눠서 배열에 저장
+        result = []
+        count = 6
+        for j in range(6):  # 직업군 이름 저장
+            if(j == 0):
+                l_name.append(tables[i][0])
+
+            else:
+                for k in range(len(developer)):
+                    if(tables[i][j] == developer[k][0]):
+                        result.append(developer[k][1]*count)
+                        print(f"table: {tables[i]}")
+                        print(f"result: {result}")
+
+            count -= 1
+        print(f"add_result: {sum(result)}")
+        print("================================")
+        buffer.append(sum(result))
+        print(f"buffer: {buffer}")
+        print(f"name: {l_name}")
+
+    for cnt in range(5):  # buffer에 동점이 있다면 sort 후 return
+        if(buffer.count(max(buffer)) >= 2 and max(buffer) == buffer[cnt]):
+            answer.append(l_name[cnt])
+
+        else:
+            if(max(buffer) == buffer[cnt]):  # buffer에 동점이 없다면 max값 return
+                return l_name[cnt]
+
+    answer.sort()
+    return answer[0]
