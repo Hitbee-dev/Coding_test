@@ -28,7 +28,7 @@ def bubble_sort(data): #버블 정렬
                 data[j], data[j+1] = data[j+1], data[j]
         print(f"L{i+1}: {convert_string(data)}")
 
-def selection_sort(data):
+def selection_sort(data): #선택 정렬
     print("")  # 공백
     print("[T2] <selection sort>")
     print(f"L0: {convert_string(data)}")
@@ -40,7 +40,7 @@ def selection_sort(data):
         data[i], data[buffer] = data[buffer], data[i]
         print(f"L{i+1}: {convert_string(data)}")
 
-def insertion_sort(data):
+def insertion_sort(data): #삽입 정렬
     print("")  # 공백
     print("[T2] <insertion sort>")
     print(f"L0: {convert_string(data)}")
@@ -64,10 +64,17 @@ if(input_n <= 10 and input_m <= 10):
             print(f"T{i}: {convert_string(make_datas[i])}")
         else:
             print(f"T{i}: {convert_string(make_datas[i])}")
+    bubble_sort(make_datas[2][:])  #버블 정렬 결과 출력
+    selection_sort(make_datas[2][:])  #선택 정렬 결과 출력
+    insertion_sort(make_datas[2][:])  #삽입 정렬 결과 출력
+
 else:
+    for i in range(input_m):
+        if(i == 0):
+            make_datas[i].sort()
+        elif(i == 1):
+            make_datas[i].sort(reverse=True)
     print(f"{input_m} test case inputs generated.")
     print(f"{input_n} integers in each test case.")
 
-bubble_sort(make_datas[2][:])
-selection_sort(make_datas[2][:])
-insertion_sort(make_datas[2][:])
+
