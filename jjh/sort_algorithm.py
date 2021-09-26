@@ -54,7 +54,7 @@ def selection_sort(list,N,M,num):
 
 def insert_sort(list,N,M,num):
     if (N <= 10 and M <= 10):
-        print("[T" + str(num) + "] <selection sort>")
+        print("[T" + str(num) + "] <insertion sort>")
         print("L0: " + " ".join(list))
         for i in range(1, N):
             for j in range(i,0,-1):
@@ -62,7 +62,7 @@ def insert_sort(list,N,M,num):
                     list[j], list[j-1] = list[j-1],list[j]
             print("L"+str(i)+": "+" ".join(list))
     else:
-        print("<insert sort>")
+        print("<insertion sort>")
         time_temp = []
         for k in range(len(list)):
             start = time.time()
