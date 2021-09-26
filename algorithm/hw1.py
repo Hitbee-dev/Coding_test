@@ -26,55 +26,36 @@ def titles(name, data): #반복코드 함수화
 def bubble_sort(data): #버블 정렬
     titles("bubble", data)
 
-    bubble_time = []
     for i in range(len(data)):
-        start = time.time()
         for j in range(len(data)-1-i):
             if(data[j] > data[j+1]):
                 data[j], data[j+1] = data[j+1], data[j]
         if(input_n <= 10 and input_m <= 10):
             print(f"L{i+1}: {convert_string(data)}")
-        end = time.time()
-        bubble_time.append(end-start)
-    if(input_n > 10 or input_m > 10):
-        setTime("bubble", bubble_time)
 
 def selection_sort(data): #선택 정렬
     titles("selection", data)
     
-    selection_time = []
-    for i in range(len(data)):
-        start = time.time()
-        buffer = i
+    for i in range(1, len(data)):
+        min_data = 0
         for j in range(i+1, len(data)):
-            if(data[buffer] > data[j]):
-                buffer = j
-
-        data[i], data[buffer] = data[buffer], data[i]
+            if(data[i] > data[j]):
+                min_data = data[j]
+        if(data[i-1] > min_data):
+            data[i-1], min_data = min_data, data[i-1]
         if(input_n <= 10 and input_m <= 10):
             print(f"L{i+1}: {convert_string(data)}")
-        end = time.time()
-        selection_time.append(end-start)
-    if(input_n > 10 or input_m > 10):
-        setTime("selection", selection_time)
 
 def insertion_sort(data): #삽입 정렬
     titles("insertion", data)
     
-    insertion_time = []
     for i in range(1, len(data)):
-        start = time.time()
         for j in range(i, 0, -1):
-            if(data[j] < data[j-1]):
-                data[j], data[j-1] = data[j-1], data[j]
-            else: 
-                break
+            if data[j - 1] > data[j]:
+                data[j - 1], data[j] = data[j], data[j - 1]
+
         if(input_n <= 10 and input_m <= 10):
             print(f"L{i+1}: {convert_string(data)}")
-        end = time.time()
-        insertion_time.append(end-start)
-    if(input_n > 10 or input_m > 10):
-        setTime("insertion", insertion_time)
 
 def setTime(names, times): #수행시간 출력
     print("")
@@ -98,8 +79,16 @@ if(input_n <= 10 and input_m <= 10):
             print(f"T{i}: {convert_string(make_datas[i])}")
         else:
             print(f"T{i}: {convert_string(make_datas[i])}")
+    bubble_sort(make_datas[2][:])  # 버블 정렬 결과 출력
+    selection_sort(make_datas[2][:])  # 선택 정렬 결과 출력
+    insertion_sort(make_datas[2][:])  # 삽입 정렬 결과 출력
 
 else:
+    times1 = []
+    times2 = []
+    times3 = []
+    names = ["bubble", "selection", "insertion"]
+
     for i in range(input_m):
         if(i == 0):
             make_datas[i].sort()
@@ -108,6 +97,23 @@ else:
     print(f"{input_m} test case inputs generated.")
     print(f"{input_n} integers in each test case.")
 
-bubble_sort(make_datas[2][:])  # 버블 정렬 결과 출력
-selection_sort(make_datas[2][:])  # 선택 정렬 결과 출력
-insertion_sort(make_datas[2][:])  # 삽입 정렬 결과 출력
+    for k in range(len(make_datas)):
+        start1 = time.time()
+        bubble_sort(make_datas[k][:])  # 버블 정렬 결과 출력
+        end1 = time.time()
+        times1.append(end1-start1)
+
+        start2 = time.time()
+        selection_sort(make_datas[k][:])  # 선택 정렬 결과 출력
+        end2 = time.time()
+        times2.append(end2-start2)
+
+        start3 = time.time()
+        insertion_sort(make_datas[k][:])  # 삽입 정렬 결과 출력
+        end3 = time.time()
+        times3.append(end3-start3)
+
+    setTime(names[0], times1)
+    setTime(names[1], times2)
+    setTime(names[2], times3)
+    

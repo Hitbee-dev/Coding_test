@@ -21,9 +21,9 @@ def bubble_sort(list,N,M,num):
                         list[k][j], list[k][j + 1] = list[k][j + 1], list[k][j]
             end = time.time()
             time_temp.append(end-start)
-        print("Best : ",round(min(time_temp),5),"milliseconds")
-        print("Worst : ", round(max(time_temp),5), "milliseconds")
-        print("Average : ", round(sum(time_temp)/len(time_temp),5), "milliseconds")
+        print("Best : ",round(min(time_temp)*1000,5),"milliseconds")
+        print("Worst : ", round(max(time_temp)*1000,5), "milliseconds")
+        print("Average : ", round(sum(time_temp)*1000/len(time_temp),5), "milliseconds")
 def selection_sort(list,N,M,num):
     if (N <= 10 and M <= 10):
         print("[T" + str(num) + "] <selection sort>")
@@ -48,9 +48,9 @@ def selection_sort(list,N,M,num):
                 list[k][i], list[k][min_idx] = list[k][min_idx], list[k][i]
             end = time.time()
             time_temp.append(end - start)
-        print("Best : ", round(min(time_temp), 5), "milliseconds")
-        print("Worst : ", round(max(time_temp), 5), "milliseconds")
-        print("Average : ", round(sum(time_temp) / len(time_temp), 5), "milliseconds")
+        print("Best : ", round(min(time_temp)*1000, 5), "milliseconds")
+        print("Worst : ", round(max(time_temp)*1000, 5), "milliseconds")
+        print("Average : ", round(sum(time_temp)*1000 / len(time_temp), 5), "milliseconds")
 
 def insert_sort(list,N,M,num):
     if (N <= 10 and M <= 10):
@@ -72,9 +72,9 @@ def insert_sort(list,N,M,num):
                         list[k][j], list[k][j - 1] = list[k][j - 1], list[k][j]
             end = time.time()
             time_temp.append(end - start)
-        print("Best : ", round(min(time_temp), 5), "milliseconds")
-        print("Worst : ", round(max(time_temp), 5), "milliseconds")
-        print("Average : ", round(sum(time_temp) / len(time_temp), 5), "milliseconds")
+        print("Best : ", round(min(time_temp)*1000, 5), "milliseconds")
+        print("Worst : ", round(max(time_temp)*1000, 5), "milliseconds")
+        print("Average : ", round(sum(time_temp)*1000 / len(time_temp), 5), "milliseconds")
 def create_date():
     N,M = map(int,input("N, M: ").split())
     if(N<=10 and M<=10):
