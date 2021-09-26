@@ -83,9 +83,6 @@ if(input_n <= 10 and input_m <= 10):
     insertion_sort(make_datas[2][:])  # 삽입 정렬 결과 출력
 
 else:
-    times1 = []
-    times2 = []
-    times3 = []
     names = ["bubble", "selection", "insertion"]
 
     for i in range(input_m):
@@ -96,23 +93,12 @@ else:
     print(f"{input_m} test case inputs generated.")
     print(f"{input_n} integers in each test case.")
 
-    for k in range(len(make_datas)):
-        start1 = time.time()
-        bubble_sort(make_datas[k][:])  # 버블 정렬 결과 출력
-        end1 = time.time()
-        times1.append(end1-start1)
-
-        start2 = time.time()
-        selection_sort(make_datas[k][:])  # 선택 정렬 결과 출력
-        end2 = time.time()
-        times2.append(end2-start2)
-
-        start3 = time.time()
-        insertion_sort(make_datas[k][:])  # 삽입 정렬 결과 출력
-        end3 = time.time()
-        times3.append(end3-start3)
-
-    setTime(names[0], times1)
-    setTime(names[1], times2)
-    setTime(names[2], times3)
-    
+    for k in range(len(names)):
+        functions = [bubble_sort, selection_sort, insertion_sort]
+        times = []
+        for cnt in range(len(make_datas)): # 버블, 선택, 삽입 정렬 순으로 출력
+            start = time.time()
+            functions[k](make_datas[cnt][:]) 
+            end = time.time()
+            times.append(end-start)
+        setTime(names[k], times)
