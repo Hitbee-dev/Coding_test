@@ -33,15 +33,6 @@ def bubble_sort(data): #버블 정렬
         if(input_n <= 10 and input_m <= 10):
             print(f"L{i+1}: {convert_string(data)}")
 
-
-def selection_sort(arr):
-    for i in range(len(arr) - 1):
-        min_idx = i
-        for j in range(i + 1, len(arr)):
-            if arr[j] < arr[min_idx]:
-                min_idx = j
-        arr[i], arr[min_idx] = arr[min_idx], arr[i]
-
 def selection_sort(data): #선택 정렬
     titles("selection", data)
     
@@ -59,8 +50,8 @@ def insertion_sort(data): #삽입 정렬
     
     for i in range(1, len(data)):
         for j in range(i, 0, -1):
-            if data[j - 1] > data[j]:
-                data[j - 1], data[j] = data[j], data[j - 1]
+            if data[j-1] > data[j]:
+                data[j-1], data[j] = data[j], data[j-1]
 
         if(input_n <= 10 and input_m <= 10):
             print(f"L{i+1}: {convert_string(data)}")
