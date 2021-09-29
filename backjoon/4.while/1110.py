@@ -20,12 +20,30 @@
 # 출력
 # 첫째 줄에 N의 사이클 길이를 출력한다.
 
-n = input().split()
-cnt = 0
+n = input()
+n_sum = ""
+n_result = ""
+n_first = n
+cnt = 1
+
 while True:
-    try:
-        print(f"{n[0]}+{n[1]} = {n[0]+n[1]}")
-    except:
-        n = ""+n
+    if(len(n) == 1):
+        n = "0" + n
+    n_sum = int(n[0])+int(n[1])
+    # print(f"{n[0]}+{n[1]} = {n_sum}")
+    # #계산식을 보고싶으면 위 주석 제거
+
+    if(len(str(n_sum)) == 1):
+        n_sum = "0" + str(n_sum)
+    else:
+        n_sum = str(n_sum)
     
-    print(n)
+    n_result = n[1]+n_sum[1]
+
+    if(int(n_first) == int(n_result)):
+        break
+    else:
+        n = n_result
+    cnt += 1
+
+print(cnt)
