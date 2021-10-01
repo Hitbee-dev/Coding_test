@@ -8,4 +8,12 @@
 
 # 출력
 # 각 테스트 케이스에 대해 P를 출력한다.
-
+k = int(input())
+for o in range(k):
+    n, m = map(str, input().split())
+    result = ""
+    for i in range(len(m)):
+        if(m == None): break
+        for j in range(int(n)):
+            result += m[i]
+    print(result)
