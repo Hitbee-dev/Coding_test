@@ -20,21 +20,22 @@
 # 10,000보다 작거나 같은 셀프 넘버를 한 줄에 하나씩 증가하는 순서로 출력한다.
 
 #진행 결과를 보고싶다면 주석 제거
+
 buffer = []
-for i in range(1, 10000):
+
+def solve(i):
     str_num = str(i)
-    # print(f"i: {i}")
     if(i < 10):
         buffer.append(i+0+i)
-        # print(f"data: {i} + 0 + {i}")
-        # print(f"buffer: {buffer}")
     else:
         buf_num = 0
         for j in range(len(str_num)):
             buf_num += int(str_num[j])
-            # print(f"buf_num: {buf_num}")
         buffer.append(i+buf_num)
-        # print(f"buffer: {buffer}")
+
+
+for i in range(1, 10000):
+    solve(i)
 
     if i not in buffer:
         print(i)
