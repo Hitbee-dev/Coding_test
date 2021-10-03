@@ -10,24 +10,30 @@
 # 첫째 줄에 그룹 단어의 개수를 출력한다.
 
 n = int(input())
-
-
+result = 0
 for i in range(n):
     m = input()
-    buffer = []
+    star_idx = []
     group_word = 0
-    cnt = 0
-    for j in range(len(m)):
-        if m[j] not in buffer:
-            buffer.append(m[j])
-            cnt += 1
-        elif m[j] in buffer and cnt != 0:
-            buffer.append(m[j])
-            cnt += 1
-        elif m[j] in buffer and cnt == 0:
-            break
+    ngroup_word = 0
+    replace_word = ""
+    for j in m:
+        buffer = []
+        replace_word = m.replace(j, "*")
+        for k in range(len(replace_word)):
+            buffer.append(replace_word[k])
+        star_idx = list(filter(lambda x: buffer[x] == "*", range(len(buffer))))
+        star_idx.sort(reverse=True)
+        if(len(star_idx) > 1):
+            for z in range(len(star_idx)-1):
+                if(star_idx[z]-star_idx[z+1] != 1):
+                    ngroup_word = 1
+                    # print(f"{star_idx[z]} - {star_idx[z+1]}")
+            if(ngroup_word == 0):
+                group_word += 1
         else:
-            buffer.append(m[j])
-            cnt == 0
-            
-    print(buffer)
+            group_word += 1
+    # print(group_word)
+    if(group_word == len(m)):
+        result += 1
+print(result)
