@@ -28,12 +28,10 @@ for i in range(n):
             for z in range(len(star_idx)-1):
                 if(star_idx[z]-star_idx[z+1] != 1):
                     ngroup_word = 1
-                    # print(f"{star_idx[z]} - {star_idx[z+1]}")
             if(ngroup_word == 0):
                 group_word += 1
         else:
             group_word += 1
-    # print(group_word)
     if(group_word == len(m)):
         result += 1
 print(result)
