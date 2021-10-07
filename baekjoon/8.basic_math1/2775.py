@@ -24,16 +24,18 @@ for i in range(t):
     k = int(input())
     n = int(input())
     result = []
-    buffer = []
+    
     
     for j in range(k):
         ans = 0
+        buffer = []
         for m in range(n):
-            if(k==0):
+            if(j==0):
                 buffer.append(m+1)
             else:
                 ans += result[j-1][m]
-                print(f"{result[j-1]}, {m}")
+                # print(f"{result[j-1]}, {m}")
                 buffer.append(ans)
         result.append(buffer)
-    print(result)
+
+    print(sum(result[-1]))
