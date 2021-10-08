@@ -34,7 +34,6 @@ for i in range(t):
                 buffer.append(m+1)
             else:
                 ans += result[j-1][m]
-                # print(f"{result[j-1]}, {m}")
                 buffer.append(ans)
         result.append(buffer)
 
