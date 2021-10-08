@@ -16,7 +16,6 @@ for i in range(t):
         n = n+move1
         m = m-move1
         # print(f"cnt: {cnt}, front_move: {move1}, n: {n}, m: {m}")
-        # print(cnt)
 
     while m > init_n:
         if(m-move2 != 0):
