@@ -17,7 +17,7 @@ while sec_exercise < N:
     else:
         while now + T > M:
             now -= R
-            if now < m:
+            if now < m: 
                 now = m
             sec += 1
 print(sec)
