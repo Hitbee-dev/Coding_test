@@ -14,6 +14,11 @@ _blank = [
     [" ", " ", " "],
 ]
 
+def _(x):
+    return 'null' if x % 3 == 0 else x
+    
+map(_, [1, 4, 3, 4, 5, 6])
+
 def is_blank(x, y):
     for i in range(1, n_log):
         if (x // (3 ** i) % 3 == 1 and y // (3 ** i) % 3 == 1):
