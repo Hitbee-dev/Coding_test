@@ -1,24 +1,47 @@
-N, M = map(int, input().split())
-board = list()
-for i in range(N):
-    board.append(input())
-repair = list()
+import sys
 
-for i in range(N-7):
-    for j in range(M-7):
-        first_W = 0
-        first_B = 0
-        for k in range(i,i+8):
-            for l in range(j,j + 8):
-                if (k + l) % 2 == 0:
-                    if board[k][l] != 'W':
-                        first_W = first_W+1
-                    if board[k][l] != 'B':
-                        first_B = first_B + 1
-                else:
-                    if board[k][l] != 'B':
-                        first_W = first_W+1
-                    if board[k][l] != 'W':
-                        first_B = first_B + 1
-        repair.append(first_W)
-        repair.append(first_B)
+def check_BW(matrix):
+    case1_not_match = 0
+    case2_not_match = 0
+
+	# case 1 시작점(0,0)이 W 인경우 
+    for x in range(8):
+        for y in range(8):
+            if ((x % 2 == 0) and (y % 2 == 0)) or ((x % 2 == 1) and (y % 2 == 1)):  # 행짝 열짝, 행홀 열홀
+                if matrix[x][y] != "W":
+                    case1_not_match += 1
+
+            elif ((x % 2 == 1) and (y % 2 == 0) or (x % 2 == 0) and (y % 2 == 1)):  # 행홀 열짝, 행짝 열홀
+                if matrix[x][y] != "B":
+                    case1_not_match += 1
+	
+    # case 2 시작점(0,0)이 B 인경우 
+    for x in range(8):
+        for y in range(8):
+            if ((x % 2 == 0) and (y % 2 == 0)) or ((x % 2 == 1) and (y % 2 == 1)):  # 행짝 열짝, 행홀 열홀
+                if matrix[x][y] != "B":
+                    case2_not_match += 1
+
+            elif ((x % 2 == 1) and (y % 2 == 0) or (x % 2 == 0) and (y % 2 == 1)):  # 행홀 열짝, 행짝 열홀
+                if matrix[x][y] != "W":
+                    case2_not_match += 1
+
+    return min(case1_not_match, case2_not_match)
+
+def solution():
+    input_list = []
+    M, N = map(int, sys.stdin.readline().split())
+    for idx in range(M):
+        input_list.append([i for i in sys.stdin.readline()][:-1])
+
+    min_revise_cnt = 123041234723842
+    for row in range(M-7):
+        for col in range(N-7):
+        	# 8*8 매트릭스로 자르기
+            slice_mat = [one_row[col:col+8] for one_row in input_list[row:row+8]]
+            revise_cnt = check_BW(slice_mat)
+            min_revise_cnt = min(min_revise_cnt, revise_cnt)
+
+    return min_revise_cnt
+
+print(solution())
