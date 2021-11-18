@@ -1,4 +1,4 @@
-# 1)원소찾기
+# 1) 원소찾기
 
 # Original Code
 def exists_in(arr, target):
@@ -14,7 +14,6 @@ def exists_in_rec(arr, target):
     elif arr[-1] == target:
         return True
     else:
-        print(arr[:-1])
         return exists_in_rec(arr[:-1], target)
 
 # Test Code
@@ -26,5 +25,4 @@ def compare(func1, func2, *args):
     print(f"{func2.__name__}=>{ret2}")
     print(f"equal?={ret1 == ret2}")
     print()
-
 compare(exists_in, exists_in_rec, [1, 2, 3, 4, 5], 6)
