@@ -14,12 +14,12 @@ def concat(left, right): # left, right 각각 리스트를 받아옴
 
 # Revursive Code
 def concat_rec(left, right):
+    result = left[:]
     if right == []:
-        return left[:]
+        return result
     else:
-        left.append(right[0])
-        right.pop(0)
-        return concat_rec(left, right)
+        result.append(right[0])
+        return concat_rec(result, right[1:])
 
 # Test Code
 def compare(func1, func2, n, m):
