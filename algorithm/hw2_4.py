@@ -28,12 +28,17 @@ counter = 0
 
 # 4-2) 반복분으로 바꾼 함수
 def shooting_iter(distance_left):
-    counter = 1
-    while distance_left > 0.01:
-        counter += 1
-        # print(distance_left)
-        distance_left = distance_left/2.0
-    return counter
+    result = []
+    if not (isinstance(distance_left,list)):
+        result.append(distance_left)
+    else:
+        result = distance_left
+    if result[-1] < 0.01:
+        print("shoot!")
+        return len(result)
+    temp = result[-1]/2.0
+    result.append(temp)
+    return shooting_iter(result)
 
 # Test Code
 def compare(func1, func2, n):
