@@ -119,7 +119,6 @@ def solution(phone_book):
         elif len(phone_book[i-1]) > len(phone_book[i]):
             if phone_book[i] == phone_book[i-1][:len(phone_book[i])]:
                 return False
-    print(dic)
     
     return True
         
