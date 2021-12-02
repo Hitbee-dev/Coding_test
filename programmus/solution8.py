@@ -63,10 +63,10 @@ def solution(clothes):
         else:
             dic[list[1]] += 1
 
-    for i in dic.values():
+    for i in dic.values(): # 옷의 종류 당 +1 씩 추가(안입는 경우)
         arr.append(i+1)
     
-    return multiply(arr) - 1
+    return multiply(arr) - 1 # 모두 다 안입는 경우를 빼주기위해 -1
     # print(multiply(arr) - 1)
 
 for i in clothes:
