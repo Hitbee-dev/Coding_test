@@ -13,3 +13,14 @@ for i in range(N):
 
 for row in adjMatrix:
     print(row)
+
+
+adjList = {v: [] for v in V} # 인접리스트 생성
+
+for x, y in E:
+    adjList[x].append(y) # [] -> [y]
+    adjList[y].append(x) # [] -> [x]
+    print()
+    for v in V:
+        print(v, '->', adjList[v])
+
