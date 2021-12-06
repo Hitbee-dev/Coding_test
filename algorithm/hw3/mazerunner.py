@@ -34,10 +34,25 @@ from maze import Maze
     # 갈 수 있는 경로가 없으면 -1을 리턴한다.
     # return -1
 
+def tuple_sum(p, rand):
+    return (p[0] + rand[0], p[1] + rand[1])
+
+mypath = [(1, 1)]
+p = (1, 1)
+route = [(0, 1), (0, -1), (-1, 0), (1, 0)] # r, l, u, d
+p = tuple_sum(p, route[0])
+mypath.append(p)
+print(mypath)
+mypath.pop()
+
 
 def shortest_path(maze):
+    global p, mypath
+    # 결론: 테스트는 여기서 해서 최적의 값을 구하고, 리턴값으로 [튜플]을 리턴하면됨.
+
+    # print(maze.view_path([(1, 1), (1, 2), (1, 3), (2, 3), (3, 3)]))
     # maze에서 (1, 1)에서 (maze.height, maze.width)까지 가는 "최단 경로"를 리턴
     # 이동 방향은 상/하/좌/우 네 방향 (대각선x)
     # 경로는 2-tuple의 리스트로 만든다(예: [(1,1), (1, 2), (2, 2), ...]
     # 갈 수 있는 경로가 없으면 []를 리턴한다.
-    return [(1, 1), (1, 2), (2, 2)]
+    return [(1, 1), (2, 1), (3, 1), (3, 2), (3, 3)]

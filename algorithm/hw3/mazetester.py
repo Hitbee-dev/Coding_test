@@ -11,10 +11,10 @@ from mazerunner import *
 # maze_sample = Maze.load("sample.maze")
 
 # 랜덤 미로 생성하기
-# maze_sample = Maze(height=3, width=3, ratio=0.0)
+maze_sample = Maze(height=3, width=3, ratio=0.0)
 # maze_sample = Maze(height=5, width=5, ratio=0.0)
 # maze_sample = Maze(height=5, width=5, ratio=0.2)
-maze_sample = Maze(height=10, width=8, ratio=0.3)
+# maze_sample = Maze(height=10, width=8, ratio=0.3)
 print(maze_sample)
 print()
 
@@ -36,16 +36,16 @@ if mypath:
 
 # 이 아래는 채점을 위한 코드
 # SCORE_MAX = 1000
-# optimal_solution = shortest_path_opt(maze_sample)
-#
+# optimal_solution = shortest_path(maze_sample)
+
 # assert maze_sample.is_valid_path(mypath), "INVALID PATH"
 # assert maze_sample.is_valid_path(optimal_solution), "INVALID OPTIMAL PATH"
-#
+
 # mylen, optlen = len(mypath), len(optimal_solution)
-#
+
 # mylen = min(mylen, optlen * 2)
 # diff = mylen - optlen
 # diff_ratio = diff / mylen
-#
+
 # myscore = SCORE_MAX * (1 - diff_ratio)
 # print(myscore)
