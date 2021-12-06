@@ -1,6 +1,23 @@
 from mazerunner import *
 # from mazerunneropt import *
 
+# 강의자료실의 maze.zip 파일 다운로드
+
+ 
+# maze.py, mazetester.py 파일을 각각 실행해본 후,
+
+# mazerunner.py 파일을 완성해서 제출한다.
+
+# 자세한 내용은 주석으로 설명해 뒀음
+
+ 
+
+# 제출: ~12/11(토)
+
+# 제출할 파일: mazerunner.py
+
+# 딜레이: 없음
+
 """
     과제 제출물을 평가하기 위한 코드
     참고용이므로 제출할 필요 없음
@@ -35,17 +52,17 @@ if mypath:
     maze_sample.view_path(mypath)
 
 # 이 아래는 채점을 위한 코드
-# SCORE_MAX = 1000
-# optimal_solution = shortest_path_opt(maze_sample)
-#
-# assert maze_sample.is_valid_path(mypath), "INVALID PATH"
-# assert maze_sample.is_valid_path(optimal_solution), "INVALID OPTIMAL PATH"
-#
-# mylen, optlen = len(mypath), len(optimal_solution)
-#
-# mylen = min(mylen, optlen * 2)
-# diff = mylen - optlen
-# diff_ratio = diff / mylen
-#
-# myscore = SCORE_MAX * (1 - diff_ratio)
-# print(myscore)
+SCORE_MAX = 1000
+optimal_solution = shortest_path(maze_sample)
+
+assert maze_sample.is_valid_path(mypath), "INVALID PATH"
+assert maze_sample.is_valid_path(optimal_solution), "INVALID OPTIMAL PATH"
+
+mylen, optlen = len(mypath), len(optimal_solution)
+
+mylen = min(mylen, optlen * 2)
+diff = mylen - optlen
+diff_ratio = diff / mylen
+
+myscore = SCORE_MAX * (1 - diff_ratio)
+print(myscore)
