@@ -48,6 +48,7 @@ mypath.pop()
 
 def shortest_path(maze):
     global p, mypath
+    #print(str(maze))
     # 결론: 테스트는 여기서 해서 최적의 값을 구하고, 리턴값으로 [튜플]을 리턴하면됨.
 
     # print(maze.view_path([(1, 1), (1, 2), (1, 3), (2, 3), (3, 3)]))

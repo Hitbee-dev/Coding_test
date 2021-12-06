@@ -11,9 +11,9 @@ from mazerunner import *
 # maze_sample = Maze.load("sample.maze")
 
 # 랜덤 미로 생성하기
-maze_sample = Maze(height=3, width=3, ratio=0.0)
+# maze_sample = Maze(height=3, width=3, ratio=0.0)
 # maze_sample = Maze(height=5, width=5, ratio=0.0)
-# maze_sample = Maze(height=5, width=5, ratio=0.2)
+maze_sample = Maze(height=5, width=5, ratio=0.2)
 # maze_sample = Maze(height=10, width=8, ratio=0.3)
 print(maze_sample)
 print()
@@ -24,6 +24,7 @@ print()
 # print()
 # exit(0)
 
+print(str(maze_sample))
 mypath = shortest_path(maze_sample)
 print('mypath =', mypath)
 print('length =', len(mypath))
