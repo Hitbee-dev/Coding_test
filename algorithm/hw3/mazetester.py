@@ -1,22 +1,15 @@
 from mazerunner import *
 # from mazerunneropt import *
 
-# 강의자료실의 maze.zip 파일 다운로드
-
- 
-# maze.py, mazetester.py 파일을 각각 실행해본 후,
-
-# mazerunner.py 파일을 완성해서 제출한다.
-
-# 자세한 내용은 주석으로 설명해 뒀음
-
- 
-
-# 제출: ~12/11(토)
-
-# 제출할 파일: mazerunner.py
-
-# 딜레이: 없음
+"""
+    강의자료실의 maze.zip 파일 다운로드
+    maze.py, mazetester.py 파일을 각각 실행해본 후,
+    mazerunner.py 파일을 완성해서 제출한다.
+    자세한 내용은 주석으로 설명해 뒀음
+    제출: ~12/11(토)
+    제출할 파일: mazerunner.py
+    딜레이: 없음
+"""
 
 """
     과제 제출물을 평가하기 위한 코드
