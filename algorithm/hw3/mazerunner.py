@@ -1,4 +1,5 @@
 from maze import Maze
+import copy
 
 """
     [과제 3]
@@ -78,4 +79,39 @@ def shortest_path(maze):
     # 경로는 2-tuple의 리스트로 만든다(예: [(1,1), (1, 2), (2, 2), ...]
     # 갈 수 있는 경로가 없으면 []를 리턴한다.
 
-maze_sample.view_path(shortest_path(maze_sample))
+success_path = []
+def shortest_path2(maze, path=[(1, 1)], depth=0):
+    # 경로(path)에서의 가장 마지막이 현재 위치
+    p = path[-1]
+    print(f"현재 위치 : {p}") # 현재 위치
+    if maze.maze[p[0]][p[1]] == '#':
+        print("여기는 벽임")
+        return []
+    # 목표 지점에 도착한 경우 현재까지의 경로를 반환
+    if p == (maze.width, maze.height):
+        return path
+    # 하, 우, 좌, 상 이동 분기
+    for i in route:
+        # 이동할 위치 업데이트
+        np = tuple_sum(p, i)
+        print(f"이동할 위치 : {np}")
+        # 만약 이동할 위치가 경로에 포함된 경우 가지 않음
+        if np in path:
+            continue
+        # 이동할 stack 에 새로운 경로 p 추가하여 새로운 분기 시작
+        new_path = copy.deepcopy(path)
+        new_path.append(np)
+        find = shortest_path2(maze, new_path, depth + 1)
+        print(find)
+        # find 탐색에 성공한 경우 길이가 1보다 큼
+        if len(find) > 0:
+            if depth > 0:
+                return find
+            else:
+                success_path.append(find)
+
+    # 성공적인 경로를 출력
+    print(success_path)
+print(maze_sample)
+# maze_sample.view_path(shortest_path2(maze_sample))
+shortest_path2(maze_sample)
