@@ -36,17 +36,17 @@ if mypath:
     maze_sample.view_path(mypath)
 
 # 이 아래는 채점을 위한 코드
-# SCORE_MAX = 1000
-# optimal_solution = shortest_path(maze_sample)
+SCORE_MAX = 1000
+optimal_solution = shortest_path(maze_sample)
 
-# assert maze_sample.is_valid_path(mypath), "INVALID PATH"
-# assert maze_sample.is_valid_path(optimal_solution), "INVALID OPTIMAL PATH"
+assert maze_sample.is_valid_path(mypath), "INVALID PATH"
+assert maze_sample.is_valid_path(optimal_solution), "INVALID OPTIMAL PATH"
 
-# mylen, optlen = len(mypath), len(optimal_solution)
+mylen, optlen = len(mypath), len(optimal_solution)
 
-# mylen = min(mylen, optlen * 2)
-# diff = mylen - optlen
-# diff_ratio = diff / mylen
+mylen = min(mylen, optlen * 2)
+diff = mylen - optlen
+diff_ratio = diff / mylen
 
-# myscore = SCORE_MAX * (1 - diff_ratio)
-# print(myscore)
+myscore = SCORE_MAX * (1 - diff_ratio)
+print(myscore)

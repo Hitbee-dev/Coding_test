@@ -41,7 +41,7 @@ def tuple_sum(p, rand):
 def tuple_sub(p, rand):
     return (p[0] - rand[0], p[1] - rand[1])
 
-maze_sample = Maze(height=3, width=3, ratio=0.0)
+maze_sample = Maze(height=8, width=8, ratio=0.3)
 mypath = [(1, 1)] # 시작점은 (1, 1)부터
 p = (1, 1) # 현재위치
 route = [(0, 1), (1, 0), (0, -1), (-1, 0)] # r, d, l, u
@@ -81,20 +81,21 @@ def shortest_path(maze):
 
 success_path = []
 def shortest_path2(maze, path=[(1, 1)], depth=0):
+    global success_path
     # 경로(path)에서의 가장 마지막이 현재 위치
     p = path[-1]
-    print(f"현재 위치 : {p}") # 현재 위치
+    #print(f"현재 위치 : {p}") # 현재 위치
     if maze.maze[p[0]][p[1]] == '#':
-        print("여기는 벽임")
+        #print("여기는 벽임")
         return []
     # 목표 지점에 도착한 경우 현재까지의 경로를 반환
-    if p == (maze.width, maze.height):
+    if p == (maze.height, maze.width):
         return path
     # 하, 우, 좌, 상 이동 분기
     for i in route:
         # 이동할 위치 업데이트
         np = tuple_sum(p, i)
-        print(f"이동할 위치 : {np}")
+        #print(f"이동할 위치 : {np}")
         # 만약 이동할 위치가 경로에 포함된 경우 가지 않음
         if np in path:
             continue
@@ -102,16 +103,32 @@ def shortest_path2(maze, path=[(1, 1)], depth=0):
         new_path = copy.deepcopy(path)
         new_path.append(np)
         find = shortest_path2(maze, new_path, depth + 1)
-        print(find)
         # find 탐색에 성공한 경우 길이가 1보다 큼
         if len(find) > 0:
             if depth > 0:
-                return find
-            else:
-                success_path.append(find)
-
+                if success_path == [] or len(success_path) > len(find):
+                    success_path = find
+    if depth > 0:
+        return []
     # 성공적인 경로를 출력
     print(success_path)
-print(maze_sample)
+
 # maze_sample.view_path(shortest_path2(maze_sample))
+print(maze_sample)
 shortest_path2(maze_sample)
+
+SCORE_MAX = 1000
+optimal_solution = success_path
+
+assert maze_sample.is_valid_path(success_path), "INVALID PATH"
+assert maze_sample.is_valid_path(optimal_solution), "INVALID OPTIMAL PATH"
+
+mylen, optlen = len(success_path), len(optimal_solution)
+
+mylen = min(mylen, optlen * 2)
+diff = mylen - optlen
+diff_ratio = diff / mylen
+
+myscore = SCORE_MAX * (1 - diff_ratio)
+print(myscore)
+maze_sample.view_path(success_path)
