@@ -37,40 +37,31 @@ from maze import Maze
 def tuple_sum(p, rand):
     return (p[0] + rand[0], p[1] + rand[1])
 
+def tuple_sub(p, rand):
+    return (p[0] - rand[0], p[1] - rand[1])
+
 maze_sample = Maze(height=3, width=3, ratio=0.0)
 mypath = [(1, 1)] # 시작점은 (1, 1)부터
 p = (1, 1) # 현재위치
-route = [(0, 1), (1, 0), (-1, 0), (0, -1)] # r, d, u, l
-
-"""
-    이동할 위치의 코드를 밑으로 내려서 수정해보면 될듯?
-"""
+route = [(0, 1), (1, 0), (0, -1), (-1, 0)] # r, d, l, u
 
 def shortest_path(maze):
     global p, mypath, route
+    real_p = p
+    print(f"현재 위치 : {p}") # 현재 위치
     for i in route:
-        print(f"현재 위치 : {p}") # 현재 위치
-        p = tuple_sum(p, i) # 현재 위치 업데이트
-        mypath.append(p) # 경로 추가
+        p = tuple_sum(p, i) # 이동할 위치 업데이트
         print(f"이동할 위치 : {p}")
 
-        if maze.maze[p[0]][p[1]] == '#': # 만약 벽이라면,
+        if maze.maze[p[0]][p[1]] == '#': # 이동할 위치가 만약 벽이라면,
             print("#")
-            print(mypath)
-            p = mypath[-2] # 현재 위치를 이전 위치로 변경
-            mypath.pop() # 경로 삭제
-            return
-        else:
-            if p in mypath:
-                print("중복")
-                print(mypath)
-                p = mypath[-2] # 현재 위치를 이전 위치로 변경
-                mypath.pop() # 경로 삭제
-                shortest_path(maze)
-                print("------")
-            else:
-                print("@") # 아니라면, 이동
-                shortest_path(maze)
+            p = real_p # 현재 위치를 이전 위치로 변경
+        else: # 벽이 아니라면
+            """
+                이동 해야함, 근데 이미 이동 했던 곳이라면 이동하지 않음
+                이부분 수정 필요
+                shortest_path(maze) 
+            """
 
         
     if maze.width == p[0] and maze.height == p[1]:
