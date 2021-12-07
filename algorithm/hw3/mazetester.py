@@ -15,8 +15,8 @@ from mazerunner import *
 # maze_sample = Maze(height=5, width=5, ratio=0.0)
 maze_sample = Maze(height=5, width=5, ratio=0.2)
 # maze_sample = Maze(height=10, width=8, ratio=0.3)
-print(maze_sample)
-print()
+# print(maze_sample)
+# print()
 
 # 경로 길이만 구했을 때 확인해볼 수 있는 코드
 # path_len = shortest_path_length(maze_sample)
