@@ -7,7 +7,7 @@ def req(s):
 
     if len(s) == len(data):
         return print(s)
-
+        
     for i in data:
         if i not in used_data:
             used_data.add(i)
