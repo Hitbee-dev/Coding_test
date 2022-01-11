@@ -14,18 +14,27 @@ result = [
     ]
 
 def solution(record):
-    data = []
+    dic = {}
+    arr = []
+    result = []
+
     for i in record:
-        data.append(i.split(" "))
-    
-    print(data)
+        state = i.split(" ")[0]
+        uid = i.split(" ")[1]
+        if state != "Leave":
+            dic[uid] = i.split(" ")[2]
 
-    for i in range(len(record)):
-        if "Enter" in record[i]: #만약 들어왔다면
-            if f"Change {data[i][1]}" in  
+        if state == "Enter":
+            arr.append(f"{uid}님이 들어왔습니다.")
+        elif state == "Leave":
+            arr.append(f"{uid}님이 나갔습니다.")
+        else:
+            pass
 
-    for j in record:
-        if "Change uid4567" in j:
-            print("ok uid")
+    for i in arr:
+        for k, v in dic.items():
+            if k in i:
+                result.append(i.replace(k, v))
+                print(k, v)
 
 solution(record)
