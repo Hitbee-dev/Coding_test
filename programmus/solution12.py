@@ -36,5 +36,5 @@ def solution(record):
             if k in i:
                 result.append(i.replace(k, v))
                 print(k, v)
-
+    # Change쪽에서 에러?
 solution(record)
