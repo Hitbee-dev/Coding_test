@@ -37,5 +37,6 @@ def solution(record):
                 result.append(i.replace(k, v))
                 print(k, v)
     # Change쪽에서 에러?
-    # ID와 닉네임이 겹치는 경우 replace에서 섞일수있다..
+    # ID와 닉네임이 겹치는 경우 replace에서 섞일수있다.
+
 solution(record)
