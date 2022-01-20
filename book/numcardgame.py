@@ -26,7 +26,6 @@ N, M = map(int, input().split())
 def numcardgame(n, m):
     for i in range(n):
         for j in range(m):
-            
 
 
     return None
