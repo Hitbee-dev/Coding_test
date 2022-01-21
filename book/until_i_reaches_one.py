@@ -16,5 +16,4 @@ def until(n, k):
             cnt += n%k
             n = n-(n%k)
     return cnt
-
 print(until(N, K))
