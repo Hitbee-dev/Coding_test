@@ -21,11 +21,10 @@ def moa(s):
     result = 100 # 초기값이 0이면 처음 곱연산 할 때 문제가 발생하니, 100을 임의로 주고 나중에 나눠줌
     buffer = list(map(int, s))
     for i in buffer:
-        if i == 0 or i == 1:
+        if i <= 1:
             result += i
         else:
             result *= i
     return result//100
-
 
 print(moa(S))
