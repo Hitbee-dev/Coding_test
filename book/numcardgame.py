@@ -23,11 +23,10 @@
 
 N, M = map(int, input().split())
 
-def numcardgame(n, m):
-    for i in range(n):
-        for j in range(m):
+def numcardgame(n):
+    result = []
+    for _ in range(n):
+        result.append(min(list(map(int, input().split())))) # 각 행의 값중 가장 작은 수 저장
+    return max(result) # 가장 작은 수들 중 가장 큰 값
 
-
-    return None
-
-print(numcardgame(N, M))
+print(numcardgame(N))
