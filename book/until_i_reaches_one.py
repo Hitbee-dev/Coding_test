@@ -8,10 +8,13 @@ N, K = map(int, input().split())
 
 def until(n, k):
     cnt = 0
-    while n != 1:
+    while n != 1: # n이 1이 될 때 까지 반복
         if n%k == 0:
             cnt += 1
             n = n//k
+        elif n < k: # 한번에 빼버려서 n이 k보다 작아졌을 때
+            cnt += k-n
+            n = k-n
         else:
             cnt += n%k
             n = n-(n%k)
