@@ -20,36 +20,48 @@
     단, 마을에 남아있어도 되기 때문에 모든 모험가를 특정한 그룹에 넣을 필요는 없다.
 """
 
-from collections import Counter
-
 N = int(input())
 Array = list(map(int, input().split()))
 Array.sort()
-def guild(n, arr):
+
+# 내가 푼 방법
+# def guild(n, arr):
+#     cnt = 0
+#     check = 0
+#     while True:
+#         if n < 1 or (n - arr[0]) < 0:
+#             break
+#         flag = True
+#         if arr[0] == 1:
+#             cnt += 1
+#             n -= 1
+#             del arr[0]
+#         else:
+#             if len(arr) < arr[check]:
+#                 break
+#             for i in range(arr[check]):
+#                 if arr[i] > arr[check]:
+#                     flag = False
+#             if flag == True:
+#                 n -= arr[check]
+#                 for _ in range(arr[check]):
+#                     del arr[0]
+#                 check = 0
+#                 cnt += 1
+#             else:
+#                 check += 1
+#                 pass
+#     return cnt
+# print(guild(N, Array))
+
+# 해답
+def guild(arr):
     cnt = 0
-    check = 0
-    while True:
-        if n < 1 or (n - arr[0]) < 0:
-            break
-        flag = True
-        if arr[0] == 1:
-            cnt += 1
-            n -= 1
-            arr.remove(1)
-        else:
-            if len(arr) < arr[check]:
-                break
-            for i in range(arr[check]):
-                if arr[i] > arr[check]:
-                    flag = False
-            if flag == True:
-                n -= arr[check]
-                for _ in range(arr[check]):
-                    del arr[0]
-                check = 0
-                cnt += 1
-            else:
-                check += 1
-                pass
-    return cnt
-print(guild(N, Array))
+    result = 0
+    for i in arr:
+        cnt += 1
+        if cnt >= i:
+            result += 1
+            cnt = 0
+    return result
+print(guild(Array))
