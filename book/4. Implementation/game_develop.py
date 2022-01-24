@@ -96,6 +96,7 @@ def game(p):
                 print(f"육지이므로 {x}, {y}로 이동하고 {sx}, {sy}를 바라보고있습니다.")
                 buffer.append(str(x)+str(y))
                 print(buffer)
+                cnt = 0
         
         # 만약 보고있는 위치가 바다라면
         else:
@@ -114,9 +115,12 @@ def game(p):
                     elif check == 5:
                         check = 1
                     print(check)
-                    # x, y = sx, sy
+                    bfx, bfy = sx, sy
                     sx, sy = x+dx[see[check]], y+dy[see[check]]
                     print(f"막다른 길 이므로 {dx[see[check]]}, {dy[see[check]]}만큼 회전하고 {sx}, {sy}를 바라보겠습니다.")
+                    x, y = x-dx[see[check]], y-dy[see[check]]
+                    sx, sy = bfx, bfy
+                    print(f"막다른 길 이므로 {x}, {y}로 이동하고, {sx}, {sy}를 바라보겠습니다.")
             else:
                 check += 1
                 if check == 4:
