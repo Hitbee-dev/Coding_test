@@ -35,6 +35,9 @@ Array = list(map(str, input().split()))
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
+# 이동 문자
+move_types = ["U", "D", "L", "R"]
+
 # 현재 위치
 x, y = 1, 1
 
@@ -47,14 +50,9 @@ def func(n, s):
 
 def udlr(size, arr):
     for i in arr:
-        if i == "U":
-            func(0, size)
-        elif i == "D":
-            func(1, size)
-        elif i == "L":
-            func(2, size)
-        elif i == "R":
-            func(3, size)
+        for n, j in enumerate(move_types):
+            if i == j:
+                func(n, size)
 
 udlr(Size, Array)
 print(x, y)
