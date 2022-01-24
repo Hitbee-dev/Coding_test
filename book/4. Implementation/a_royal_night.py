@@ -27,7 +27,6 @@ def a_royal_night(move):
     for i in range(len(dx)):
         if columns.index(move[0]) - dx[i] > -1 and columns.index(move[0]) - dx[i] < 8 and rows.index(move[1]) - dy[i] > -1 and rows.index(move[1]) - dy[i] < 8:
             cnt += 1
-            print(columns.index(move[0]) - dx[i], rows.index(move[1]) - dy[i])
     return cnt
 
 print(a_royal_night(move_types))
