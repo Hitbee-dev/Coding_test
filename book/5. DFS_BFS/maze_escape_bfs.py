@@ -1,5 +1,11 @@
 # 미로탈출 BFS
 
+""" 요약
+    DFS/BFS중 왜 BFS를 사용했냐면,
+    BFS를 이용해서 너비를 우선탐색하게되면
+    여러 갈래로 갈리는 경로 중에서 가장 짧게 갈 수 있는 경로를 알 수 있기 때문이다.
+"""
+
 from collections import deque
 
 def bfs(x, y):
