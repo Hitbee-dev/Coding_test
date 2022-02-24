@@ -24,7 +24,6 @@ def python_search(na, ma):
 
 def binary_search(na, ma):
     na.sort()
-    ma.sort()
     result = []
     for i in ma:
         buf = na
@@ -68,8 +67,6 @@ print("파이썬 For Each문 활용으로 해결")
 for i in range(M):
     print(RESULT1[i], end=" ")
     
-# 이진 탐색 방법의 경우 sort를 하고 시작하기 때문에 yes와 no의 위치가 바뀔 수 있음
-# 해결하려면 하겠는데 코드가 너무 길어지는데.. 이렇게 푸는게 맞나싶다
 print("\n\n이진탐색으로 해결")
 for i in range(M):
     print(RESULT2[i], end=" ")
