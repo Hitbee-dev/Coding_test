@@ -7,9 +7,7 @@
 
 # µñ¼Å³Ê¸®¸¦ È°¿ë
 N = int(input())
-NAMES, SCORES = [], []
 data = {}
-buffer = []
 for _ in range(N):
     name, score = map(str, input().split())
     data[score] = name
