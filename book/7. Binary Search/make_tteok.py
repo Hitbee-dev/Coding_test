@@ -34,6 +34,38 @@ def tteok(n, m, arr):
             break
     return buffer
 
-N, M = map(int, input().split())
-Arr = list(map(int, input().split()))
-print(max(Arr) - max(tteok(N, M, Arr)))
+def tteok_binary(n, m, arr):
+    start = 0
+    end = max(arr)
+    result = 0
+
+    # 시작과 끝값이 같거나 크로스가 되는경우 종료
+    while start <= end:
+        # 자른 떡의 갯수를 세기 위한 total
+        total = 0
+        # 자를 높이를 구하기 위한 mid
+        mid = (start+end) // 2
+        for x in arr:
+            print(f"x: {x}")
+            # 잘랐을 때 떡의 양 계산
+            if x > mid:
+                total += x - mid
+                print(f"total: {total}")
+        # 떡의 양이 부족한 경우 더 많이 자르기(왼쪽 탐색)
+        if total < m:
+            end = mid - 1
+            print(f"떡의 양이 부족: {end}")
+        # 떡의 양이 충분한 경우 덜 자르기(오른쪽 탐색)
+        else:
+            result = mid # 최대한 덜 잘랐을 때가 정답이므로 여기서 result기록
+            start = mid + 1
+            print(f"떡의 양이 충분= result: {result}, start: {start}")
+    return result
+
+# N, M = map(int, input().split())
+# Arr = list(map(int, input().split()))
+
+N, M = 4, 6
+Arr = [19, 15, 10, 17]
+# print(max(Arr) - max(tteok(N, M, Arr)))
+print(tteok_binary(N, M, Arr))
