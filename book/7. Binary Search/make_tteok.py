@@ -18,7 +18,7 @@ def tteok(n, m, arr):
         # 제일 작은 값을 기준으로 잘랐는데 만약 원하는 길이보다 크다면
         if sum(buffer) > m:
             # 전부 길이 1씩 줄이기
-            for i in range(len(buffer)):
+            for i in range(n):
                 # 근데 이미 0이라면 그대로 두기
                 if buffer[i] == 0:
                     pass
@@ -30,14 +30,10 @@ def tteok(n, m, arr):
         # 원하는 길이보다 작아졌다면
         else:
             # 전부 길이 1씩 늘리고 반복문 종료
-            for i in range(len(buffer)):
-                buffer[i] += 1
-                break
+            buffer[i] = [x+1 for x in range(n)]
+            break
     return buffer
 
 N, M = map(int, input().split())
 Arr = list(map(int, input().split()))
-
-# N, M = 4, 6
-# Arr = [19, 15, 10, 17]
 print(max(Arr) - max(tteok(N, M, Arr)))
