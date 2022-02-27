@@ -28,3 +28,8 @@
    - 큐 자료구조
    - 너비 우선 탐색
    - 선입선출
+---
+ - Dynamic Programming(동적 계획법)
+   - 피보나치 수 예시
+     - fibo_memoization.py == 탑다운 방식
+     - fibo_function.py == 보텀업 방식
