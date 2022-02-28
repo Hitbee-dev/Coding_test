@@ -10,4 +10,3 @@ def recursive(i):
     if i % 10 == 0:
         print("==========================================================================")
 print(recursive(1))
-print(recursive(1))
