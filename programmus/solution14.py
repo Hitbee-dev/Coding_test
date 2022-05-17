@@ -9,7 +9,7 @@ def solution(new_id):
     new_id = re.sub(r"[^a-z0-9-_.]","",new_id)
 
     # 3단계
-    new_id = re.sub(r"[.]{2}", ".", new_id)
+    new_id = re.sub(r"[.]{2,}", ".", new_id)
     
     # 4단계
     new_id = new_id.strip(".")
