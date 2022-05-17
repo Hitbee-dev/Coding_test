@@ -1,42 +1,22 @@
-record = [
-    "Enter uid1234 Muzi", 
-    "Enter uid4567 Prodo",
-    "Leave uid1234",
-    "Enter uid1234 Prodo",
-    "Change uid4567 Ryan"
-    ]
-
-result = [
-    "Prodo님이 들어왔습니다.", 
-    "Ryan님이 들어왔습니다.", 
-    "Prodo님이 나갔습니다.", 
-    "Prodo님이 들어왔습니다."
-    ]
+'''
+    오픈 채팅방을 개설한 사람을 위해 다양한 사람들이 들어오고 나가는 것을 지켜볼 수 있는 관리자 창을 만드는 것이 목적
+'''
 
 def solution(record):
-    dic = {}
-    arr = []
-    result = []
-
+    uid = {}
+    state = []
+    answer = []
+    
     for i in record:
-        state = i.split(" ")[0]
-        uid = i.split(" ")[1]
-        if state != "Leave":
-            dic[uid] = i.split(" ")[2]
-
-        if state == "Enter":
-            arr.append(f"{uid}님이 들어왔습니다.")
-        elif state == "Leave":
-            arr.append(f"{uid}님이 나갔습니다.")
-        else:
-            pass
-
-    for i in arr:
-        for k, v in dic.items():
-            if k in i:
-                result.append(i.replace(k, v))
-                print(k, v)
-    # Change쪽에서 에러?
-    # ID와 닉네임이 겹치는 경우 replace에서 섞일수있다.
-
-solution(record)
+        state.append(i.split(" "))
+    
+    for i in state:
+        if i[0] != "Leave":
+            uid[i[1]] = i[2]
+        
+    for idx, i in enumerate(state):
+        if i[0] == "Enter":
+            answer.append(f"{uid[i[1]]}님이 들어왔습니다.")
+        elif i[0] == "Leave":
+            answer.append(f"{uid[i[1]]}님이 나갔습니다.")
+    return answer
