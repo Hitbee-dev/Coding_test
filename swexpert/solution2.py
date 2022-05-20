@@ -8,7 +8,7 @@ for i in range(1, T+1):
     for j in range(cnt, 1, -1):
         if price < data[j-1]:
             price = data[j-1]
-        if data[j-1] >= data[j-2]:
+        if price >= data[j-2]:
             sum += price - data[j-2]
 
     print(f"#{i} {sum}")
