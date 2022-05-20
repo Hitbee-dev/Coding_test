@@ -19,7 +19,7 @@ for i in range(1, T+1):
     sum = 0
     for index in result:
         for answer in range(len(index)):
-            if len(index) == 1:
+            if len(index) == 1 or min(index) == max(index):
                 pass
             else:
                 sum += max(index)-index[answer]
