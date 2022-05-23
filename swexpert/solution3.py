@@ -60,4 +60,3 @@ for i in range(1, T+1):
                         pass
                     buf[x][y] = 2
     print(buf)
-    
