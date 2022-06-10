@@ -38,25 +38,20 @@ maze = [["0 0 1 0 0 0 0",
           "0 0 0 1 1"
           "1 0 1 1 1"]]
 
-for i in range(1, T+1):
-    buf = []
-    top = []
-    bottom = []
-    left = []
-    right = []
-    # cnt = int(input())
-    cnt = mcnt[i-1]
-    for j in range(cnt):
-        # mazes = list(map(int, input().split(" ")))
-        mazes = list(map(int, maze[i-1][j].split(" ")))
-        buf.append(mazes)
-    # print(buf)
-    for x in range(cnt):
-        for y in range(cnt):
-            if buf[x][y] == 1:
-                # print(buf[x])
-                for k in range(x, 0, -1):
-                    if buf[x][y] == 1:
-                        pass
-                    buf[x][y] = 2
-    print(buf)
+for i in range(T):
+    ####################  Maze Data Initalize  #####################
+    buffer = []
+    for j in range(mcnt[i]):
+        buffer.append(list(map(int, maze[i][j].split(" "))))
+    print(buffer)
+    ################################################################
+    MIN_INDEX = 0
+    MAX_INDEX = len(buffer)-1
+    for x in range(MAX_INDEX):
+        for y in range(MAX_INDEX):
+            if buffer[x][y] == 1:
+                if x == MIN_INDEX or x == MAX_INDEX or y == MIN_INDEX or y == MAX_INDEX:
+                    pass
+                    buffer[x][y] = 2
+
+    print(buffer)
