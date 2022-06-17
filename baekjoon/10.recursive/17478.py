@@ -8,8 +8,10 @@ data = ["\"재귀함수가 뭔가요?\"",
         "그의 답은 대부분 옳았다고 하네. 그런데 어느 날, 그 선인에게 한 선비가 찾아와서 물었어.\""
 ]
 def recursive(cnt, add_data):
-    if cnt == -1:
+    if cnt == 0:
+        print(f"{add_data}{data[0]}")
         print(f"{add_data}\"재귀함수는 자기 자신을 호출하는 함수라네\"")
+        print(f"{add_data}라고 답변하였지.")
         return
     for _ in data:
         print(f"{add_data}{_}")
