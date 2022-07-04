@@ -18,3 +18,4 @@ for i in dicts.values(): # 제일 큰 넓이 구하기
     else:
         buf.extend(i)
 print(((max_length[0] * max_length[1]) - (min_length[0] * (buf[buf.index(min_length[0])-3])))*recycle)
+# 도대체 왜 틀렸는지 이유를 모르겠네 ㅡㅡ
