@@ -1,21 +1,32 @@
 recycle = int(input()) # 반복 횟수
+result = []
+values = []
 dicts = {}
-min_length = []
 
 for i in range(6):
     x, y = map(int, input().split())
+    result.append(x)    # 들어온 순서 대로 저장
+    values.append(y)
     if x not in dicts.keys():
         dicts[x] = y
     else:
-        min_length.append(y)
         dicts[x] = dicts[x], y
+        
+max_idx = []
+for k, v in dicts.items(): # 중복되는 값 찾기
+    if type(v) != tuple:
+        max_idx.append(v)
 
-max_length = []
-buf = []
-for i in dicts.values(): # 제일 큰 넓이 구하기
-    if type(i) != tuple:
-        max_length.append(i)
-    else:
-        buf.extend(i)
-print(((max_length[0] * max_length[1]) - (min_length[0] * (buf[buf.index(min_length[0])-3])))*recycle)
-# 도대체 왜 틀렸는지 이유를 모르겠네 ㅡㅡ
+if result[0] == result[4] and result[1] == result[5]:
+    print((((max_idx[0] * max_idx[1])-(values[0] * values[5]))*recycle))
+else:
+    flag = True
+    while flag is True:
+        if result[0] == result[2] and result[1] == result[3]:
+            print((((max_idx[0] * max_idx[1])-(values[1] * values[2]))*recycle))
+            flag = False
+        else:
+            result.append(result[0])
+            result.pop(0)
+            values.append(values[0])
+            values.pop(0)
