@@ -19,10 +19,12 @@
 #     "icerink"]
 
 N_CNT, M_CNT = map(int, input().split())
-DATA = [input() for _ in range(N_CNT+M_CNT)]
-
+RESULT = set()
 cnt = 0
-for i in DATA[N_CNT:]:
-    if i in set(DATA[:N_CNT]):
+
+for _ in range(N_CNT):
+    RESULT.add(input())
+for _ in range(M_CNT):
+    if input() in RESULT:
         cnt += 1
 print(cnt)
