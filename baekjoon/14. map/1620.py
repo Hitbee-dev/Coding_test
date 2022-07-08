@@ -16,25 +16,32 @@
 
 # 입력으로 들어오는 문자는 반드시 도감에 있는 포켓몬의 이름만 주어짐
 
-# N, M = map(int, input().split())
-# collection = dict()
-# for i in range(N):
-#     collection[input()] = i+1
-# reverse_collection = dict(map(reversed, collection.items()))
-
-# for j in range(M):
-#     data = input()
-#     if data in collection:
-#         print(collection[data])
-#     else:
-#         print(reverse_collection[int(data)])
-
+# solution1
+import sys
+input = sys.stdin.readline
 N, M = map(int, input().split())
 collection = dict()
 for i in range(N):
-    data = input()
+    data = input().strip()
     collection[data] = str(i+1)
     collection[str(i+1)] = data
 
 for j in range(M):
-    print(collection[input()])
+    print(collection[input().strip()])
+
+# solution2
+# import sys
+# input = sys.stdin.readline
+# N, M = map(int, input().strip().split())
+# collection = dict()
+# for i in range(N):
+#     collection[input().strip()] = i+1
+# reverse_collection = dict(map(reversed, collection.items()))
+
+# for j in range(M):
+#     data = input().strip()
+#     if data.isalpha():
+#         print(collection[data])
+#     else:
+#         print(reverse_collection[int(data)])
+
